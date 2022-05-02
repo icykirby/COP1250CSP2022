@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.lang.Math;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Random;
@@ -294,8 +295,9 @@ public class MiniCactPot extends JFrame {
 	 *  same spacing and/or format as the demo. 
 	 */
 	public String createRewardsTextArea() {
-		// Return the proper string for the rewards table
-		return "PUT THE REWARDS TABLE HERE";
+		// Assigns pre-determined payouts for sums collected.
+		return "********PAYOUT********\nSum  MGP  Sum  MGP\n6   10000  16  72\n7   36  17  180\n8   720  18  119\n9   360  19  36\n10  80  20  306\n11  252  21  1080\n12  108  22  144\n13  72  23  1800\n14  54  24  3600\n15  180";
+			
 				
 	}
 	/*
@@ -313,12 +315,19 @@ public class MiniCactPot extends JFrame {
 		 * repeating any number
 		 */
 		public void resetMatrix(int[][] matrix) {
-			// This is a dummy answer, add the code necessary to fill the array
-			for(int i=0;i<3;i++)
-				for(int j=0;j<3;j++)
-					matrix[i][j]=1;
+			// Assigns a random number between 1-9 for both the pre-assigned number, and any future cells within the matrix.
 			
+			for(int i=0;i<3;i++) {
+				for(int j=0;j<3;j++) {
+					matrix[i][j]= (int)Math.floor(Math.random()*(9-1+1)+1);
+				
+					}
+			}
 		}
+				
+					
+			
+				
 		/*
 		 *  To obtain the matrix. Do not change
 		 */
@@ -330,32 +339,32 @@ public class MiniCactPot extends JFrame {
 		 *  the sum of the numbers in that row
 		 */
 		public int getRowSums(int[][] matrix,int row) {
-			// Add code and return the proper number
-			return 0;
+			return matrix[row][0] + matrix[row][1] + matrix[row][2];
 		}
 		/*
 		 *  Method 4. For the matrix and an specific column(col) to return
 		 *  the sum of the numbers in that column
 		 */
 		public int getColSums(int[][] matrix,int col) {
-			// Add code and return the proper number
-						return 0;
+			return matrix[0][col] + matrix[1][col] + matrix[2][col];
+						
 		}
 		/*
 		 *  Method 5. For the matrix return the sum of the direct
 		 *  diagonal
 		 */
 		public int getDirDiagSum(int[][] matrix) {
-			// Add code and return the proper number
-						return 0;
+			
+			return matrix[0][0] + matrix[1][1] + matrix[2][2];
+
 		}
 		/*
 		 *  Method 6. For the matrix return the sum of the inverse
 		 *  diagonal
 		 */
 		public int getInvDiagSum(int[][] matrix) {
-			// Add code and return the proper number
-						return 0;
+			return matrix[0][2] + matrix[1][1] + matrix[2][0];
+						
 		}
 		
 	}
